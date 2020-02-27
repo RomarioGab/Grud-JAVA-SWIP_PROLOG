@@ -1,0 +1,23 @@
+% Author:
+% Date: 15/01/2020
+
+:- dynamic data_nasc/3.
+
+:- dynamic funcionario/8.
+%funcionario( bi_func, nome, apelido, data_nasc(dia,mes,ano), endereço, telefone, sexo, emails).
+funcionario(111111,xuxa,pedifero,data_nasc(01,01,1980),palmarejo,9999999,masculino,xuxapediferu_gmail_com).
+
+
+:- dynamic dependente/8.
+%dependente( bi_func, bi, nome, apelido, data_nascimento, endereço, telefone, sexo, emails,nome_departamento).
+dependente(111111,222222,malandro,ladrao,data_nasc(13,11,1987),palmarejo,9888888,masculino,malandroladrao_gmail_com).
+
+
+:- dynamic departamento/3.
+%departamento(nome_departamento, nome_diretor, data_criacao(dia,mes,ano)).
+departamento(departamento_de_markiting, dioskida, data_criacao(12,12,2000)).
+
+
+:- dynamic licenca/3.
+%licenca(bi_func,n_licenca, tipo, data_início(dia,mes,ano), data_fim(dia,mes,ano)).
+licenca(111111,1,feria,data_inicio(12,03,2019),data_fim(12,03,2020)).

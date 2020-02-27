@@ -1,0 +1,27 @@
+% Author:
+% Date: 15/01/2020
+
+:- dynamic data_nasc/3.
+:- dynamic funcionario/8.
+:- dynamic dependente/8.
+:- dynamic departamento/3.
+:- dynamic licenca/3.
+
+carrega:- exists_file('BaseConhecimentoRecursosHumanos.pl'),consult('BaseConhecimentoRecursosHumanos.pl').
+
+
+addfuncionario(A,B,C,data_nasc(D,E,F),G,H,I,J):-assertz(funcionario(A,B,C,data_nasc(D,E,F),G,H,I,J)).
+removefuncionario(A,_,_,data_nasc(_,_,_),_,_,_,_):-retract(funcionario(A,_,_,data_nasc(_,_,_),_,_,_,_)).
+
+adddependente(A,B,C,D,data_nasc(E,F,G),H,I,J,K):-assertz(dependente(A,B,C,D,data_nasc(E,F,G),H,I,J,K)).
+removedependente(A,_,_,_,data_nasc(_,_,_),_,_,_,_):-retract(dependente(A,_,_,_,data_nasc(_,_,_),_,_,_,ª_)).
+
+adddepartmento(A,B,data_criacao(C,D,E)):-assertz(departamento(A, B, data_criacao(C,D,E))).
+removedepartamento(A,_,data_criacao(_,_,_)):-retract(departamento(A,_, data_criacao(_,_,_))).
+
+addlicenca(A,B,C,data_inicio(D,E,F),data_fim(G,H,I)):-assertz(licenca(A,B,C,data_inicio(D,E,F),data_fim(G,H,I))).
+removelicenca(A,_,_,data_inicio(_,_,_),data_fim(_,_,_)):-reract(licenca(A,_,_,data_inicio(_,_,_),data_fim(_,_,_))).
+
+salvar :- tell('BaseConhecimentoRecursosHumanos.pl'),
+          listing(funcionario),listing(dependente),listing(departamento),listing(licenca),
+          told.
